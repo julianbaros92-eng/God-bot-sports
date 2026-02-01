@@ -19,10 +19,16 @@ export const dynamic = 'force-dynamic';
 
 export default async function LokiPage() {
     // 1. Fetch Picks
-    const picks = await db.pick.findMany({
-        where: { bot: 'LOKI' },
-        orderBy: { matchDate: 'desc' }
-    });
+    let picks: any[] = [];
+    try {
+        picks = await db.pick.findMany({
+            where: { bot: 'LOKI' },
+            orderBy: { matchDate: 'desc' }
+        });
+    } catch (e) {
+        console.warn("DB Fetch Failed (Expected during Vercel Build if using SQLite):", e);
+        picks = [];
+    }
 
     const pendingPicks = picks
         .filter((p: PrismaPick) => p.status === 'PENDING')
@@ -108,7 +114,7 @@ export default async function LokiPage() {
                             </div>
                             <div className={styles.statCard}>
                                 <p className={styles.statLabel}>Avg ROI</p>
-                                <p className={`${styles.statValue} ${styles.textEmerald}`}>{roi > 0 ? '+' : ''}{roi}%</p>
+                                <p className={`${styles.statValue} ${styles.textEmerald}`}>{parseFloat(roi) > 0 ? '+' : ''}{roi}%</p>
                             </div>
                             <div className={styles.statCard}>
                                 <p className={styles.statLabel}>Avg Odds</p>

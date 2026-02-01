@@ -18,10 +18,16 @@ export const dynamic = 'force-dynamic'; // Ensure realtime data
 
 export default async function ZeusPage() {
     // 1. Fetch Picks
-    const picks = await db.pick.findMany({
-        where: { bot: 'ZEUS' },
-        orderBy: { matchDate: 'desc' }
-    });
+    let picks: any[] = [];
+    try {
+        picks = await db.pick.findMany({
+            where: { bot: 'ZEUS' },
+            orderBy: { matchDate: 'desc' }
+        });
+    } catch (e) {
+        console.warn("DB Fetch Failed (Expected during Vercel Build if using SQLite):", e);
+        picks = [];
+    }
 
     const pendingPicks = picks
         .filter((p: PrismaPick) => p.status === 'PENDING')
