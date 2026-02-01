@@ -1,0 +1,110 @@
+[
+  {
+    "id": "opp_98c3423f08777d4b20922a767ac9d848_Sacramento Kings",
+    "date": "2026-01-22T02:48:59.698Z",
+    "gameId": "opp_98c3423f08777d4b20922a767ac9d848",
+    "team": "Sacramento Kings",
+    "action": "BUY_UNDERDOG",
+    "entryPrice": 0.27,
+    "vegasPrice": 0.35714285714285715,
+    "amount": 50,
+    "status": "OPEN",
+    "pnl": 0
+  },
+  {
+    "id": "opp_70f49db28c0730ed5a7fe2a39bf5ae73_KXNBAGAME-26JAN23PHXATL-ATL",
+    "date": "2026-01-23T00:25:37.842Z",
+    "gameId": "opp_70f49db28c0730ed5a7fe2a39bf5ae73",
+    "team": "KXNBAGAME-26JAN23PHXATL-ATL",
+    "action": "BUY_UNDERDOG",
+    "entryPrice": 0.39,
+    "vegasPrice": 0.44642857142857145,
+    "amount": 50,
+    "status": "WON",
+    "pnl": 78.2051282051282
+  },
+  {
+    "id": "opp_42123e483653bc996b61e0fcfbc67da2_KXNBAGAME-26JAN23BOSBKN-BKN",
+    "date": "2026-01-23T00:25:37.918Z",
+    "gameId": "opp_42123e483653bc996b61e0fcfbc67da2",
+    "team": "KXNBAGAME-26JAN23BOSBKN-BKN",
+    "action": "BUY_UNDERDOG",
+    "entryPrice": 0.22,
+    "vegasPrice": 0.273972602739726,
+    "amount": 50,
+    "status": "LOST",
+    "pnl": -50
+  },
+  {
+    "id": "opp_daaae076a5da6cc33ed11e20704f5f52_KXNBAGAME-26JAN23DENMIL-MIL",
+    "date": "2026-01-23T17:03:49.989Z",
+    "gameId": "opp_daaae076a5da6cc33ed11e20704f5f52",
+    "team": "KXNBAGAME-26JAN23DENMIL-MIL",
+    "action": "BUY_SIGNAL",
+    "entryPrice": 0.64,
+    "vegasPrice": 0.7041420118343196,
+    "amount": 50,
+    "status": "LOST",
+    "pnl": -50
+  },
+  {
+    "id": "opp_7b855fffbf51faed6fdde563f8e8f04f_KXNBAGAME-26JAN24BOSCHI-CHI",
+    "date": "2026-01-24T14:00:56.596Z",
+    "gameId": "opp_7b855fffbf51faed6fdde563f8e8f04f",
+    "team": "KXNBAGAME-26JAN24BOSCHI-CHI",
+    "action": "BUY_SIGNAL",
+    "entryPrice": 0.39,
+    "vegasPrice": 0.5215311004784688,
+    "amount": 50,
+    "status": "WON",
+    "pnl": 78.2051282051282
+  },
+  {
+    "id": "opp_08532c5ceb916194106d04e818ec4511_KXNBAGAME-26JAN26ORLCLE-ORL",
+    "date": "2026-01-24T18:49:16.696Z",
+    "gameId": "opp_08532c5ceb916194106d04e818ec4511",
+    "team": "KXNBAGAME-26JAN26ORLCLE-ORL",
+    "action": "BUY_SIGNAL",
+    "entryPrice": 0.36,
+    "vegasPrice": 0.5555555555555556,
+    "amount": 50,
+    "status": "LOST",
+    "pnl": -50
+  },
+  {
+    "id": "opp_c86cde8c8683c965d5c7ebd795617e43_KXNBAGAME-26JAN25DENMEM-MEM",
+    "date": "2026-01-25T18:06:09.156Z",
+    "gameId": "opp_c86cde8c8683c965d5c7ebd795617e43",
+    "team": "KXNBAGAME-26JAN25DENMEM-MEM",
+    "action": "BUY_SIGNAL",
+    "entryPrice": 0.59,
+    "vegasPrice": 0.6491228070175439,
+    "amount": 50,
+    "status": "OPEN",
+    "pnl": 0
+  },
+  {
+    "id": "opp_7a308fc31e2ed7c6d0481bcd323157f2_KXNBAGAME-26JAN30LACDEN-DEN",
+    "date": "2026-01-30T20:58:17.836Z",
+    "gameId": "opp_7a308fc31e2ed7c6d0481bcd323157f2",
+    "team": "KXNBAGAME-26JAN30LACDEN-DEN",
+    "action": "BUY_SIGNAL",
+    "entryPrice": 0.36,
+    "vegasPrice": 0.46511627906976744,
+    "amount": 50,
+    "status": "WON",
+    "pnl": 88.88888888888889
+  },
+  {
+    "id": "opp_639d6371d85a020efe8c387843e9092f_KXNBAGAME-26JAN31NOPPHI-PHI",
+    "date": "2026-01-31T07:23:17.419Z",
+    "gameId": "opp_639d6371d85a020efe8c387843e9092f",
+    "team": "KXNBAGAME-26JAN31NOPPHI-PHI",
+    "action": "BUY_SIGNAL",
+    "entryPrice": 0.18,
+    "vegasPrice": 0.8,
+    "amount": 50,
+    "status": "OPEN",
+    "pnl": 0
+  }
+]

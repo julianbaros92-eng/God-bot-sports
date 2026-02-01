@@ -1,0 +1,515 @@
+Running Backtest...
+{
+  "totalGames": 99,
+  "betsPlaced": 56,
+  "wins": 30,
+  "losses": 26,
+  "winRate": 53.57142857142857,
+  "roi": 2.3214285714285725,
+  "history": [
+    {
+      "date": "2024-12-01",
+      "matchup": "PHX vs GSW",
+      "modelSide": "Home",
+      "pick": "PHX 3.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 26.8
+    },
+    {
+      "date": "2024-12-01",
+      "matchup": "UTA vs DAL",
+      "modelSide": "Home",
+      "pick": "UTA +-5.5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 40.8
+    },
+    {
+      "date": "2024-12-01",
+      "matchup": "BKN vs ORL",
+      "modelSide": "Home",
+      "pick": "BKN +-8",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 38
+    },
+    {
+      "date": "2024-12-01",
+      "matchup": "MEM vs IND",
+      "modelSide": "Home",
+      "pick": "MEM +-5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 21.3
+    },
+    {
+      "date": "2024-12-01",
+      "matchup": "NYK vs NOP",
+      "modelSide": "Home",
+      "pick": "NYK +-10.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 48
+    },
+    {
+      "date": "2024-12-01",
+      "matchup": "TOR vs MIA",
+      "modelSide": "Home",
+      "pick": "TOR +-11.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 22
+    },
+    {
+      "date": "2024-11-30",
+      "matchup": "BKN vs ORL",
+      "modelSide": "Home",
+      "pick": "BKN +-11",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 79.3
+    },
+    {
+      "date": "2024-11-30",
+      "matchup": "MIN vs LAC",
+      "modelSide": "Home",
+      "pick": "MIN 7.5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 21
+    },
+    {
+      "date": "2024-11-30",
+      "matchup": "IND vs DET",
+      "modelSide": "Home",
+      "pick": "IND +-13",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 86.5
+    },
+    {
+      "date": "2024-11-30",
+      "matchup": "CHI vs BOS",
+      "modelSide": "Home",
+      "pick": "CHI +-7",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 37.8
+    },
+    {
+      "date": "2024-11-30",
+      "matchup": "LAL vs OKC",
+      "modelSide": "Home",
+      "pick": "LAL +-3.5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 26.8
+    },
+    {
+      "date": "2024-11-30",
+      "matchup": "POR vs SAC",
+      "modelSide": "Home",
+      "pick": "POR 0.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 21.5
+    },
+    {
+      "date": "2024-11-30",
+      "matchup": "CHA vs ATL",
+      "modelSide": "Home",
+      "pick": "CHA +-6.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 23
+    },
+    {
+      "date": "2024-11-29",
+      "matchup": "ATL vs CLE",
+      "modelSide": "Home",
+      "pick": "ATL +-5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 23.5
+    },
+    {
+      "date": "2024-11-28",
+      "matchup": "CHA vs MIA",
+      "modelSide": "Home",
+      "pick": "CHA +-8",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 29
+    },
+    {
+      "date": "2024-11-28",
+      "matchup": "CLE vs ATL",
+      "modelSide": "Home",
+      "pick": "CLE +-7",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 42.3
+    },
+    {
+      "date": "2024-11-28",
+      "matchup": "PHI vs HOU",
+      "modelSide": "Home",
+      "pick": "PHI +-8",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 35.8
+    },
+    {
+      "date": "2024-11-28",
+      "matchup": "WAS vs LAC",
+      "modelSide": "Home",
+      "pick": "WAS +-6",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 71.3
+    },
+    {
+      "date": "2024-11-28",
+      "matchup": "DAL vs NYK",
+      "modelSide": "Home",
+      "pick": "DAL +-1.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 30
+    },
+    {
+      "date": "2024-11-28",
+      "matchup": "MEM vs DET",
+      "modelSide": "Home",
+      "pick": "MEM +-5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 32.5
+    },
+    {
+      "date": "2024-11-28",
+      "matchup": "MIN vs SAC",
+      "modelSide": "Home",
+      "pick": "MIN +-4.5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 36
+    },
+    {
+      "date": "2024-11-28",
+      "matchup": "NOP vs TOR",
+      "modelSide": "Home",
+      "pick": "NOP +-8.5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 79.8
+    },
+    {
+      "date": "2024-11-28",
+      "matchup": "SAS vs LAL",
+      "modelSide": "Home",
+      "pick": "SAS +-7",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 58
+    },
+    {
+      "date": "2024-11-28",
+      "matchup": "UTA vs DEN",
+      "modelSide": "Home",
+      "pick": "UTA +-5.5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 56.5
+    },
+    {
+      "date": "2024-11-28",
+      "matchup": "GSW vs OKC",
+      "modelSide": "Home",
+      "pick": "GSW +-8",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 29
+    },
+    {
+      "date": "2024-11-27",
+      "matchup": "WAS vs CHI",
+      "modelSide": "Home",
+      "pick": "WAS +-7",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 60.3
+    },
+    {
+      "date": "2024-11-27",
+      "matchup": "MIN vs HOU",
+      "modelSide": "Home",
+      "pick": "MIN +-7",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 31
+    },
+    {
+      "date": "2024-11-27",
+      "matchup": "UTA vs SAS",
+      "modelSide": "Home",
+      "pick": "UTA +-3.5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 38
+    },
+    {
+      "date": "2024-11-27",
+      "matchup": "PHX vs LAL",
+      "modelSide": "Home",
+      "pick": "PHX 0.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 62
+    },
+    {
+      "date": "2024-11-26",
+      "matchup": "CHA vs ORL",
+      "modelSide": "Home",
+      "pick": "CHA +-1",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 27.3
+    },
+    {
+      "date": "2024-11-26",
+      "matchup": "BOS vs LAC",
+      "modelSide": "Home",
+      "pick": "BOS +-5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 59.5
+    },
+    {
+      "date": "2024-11-26",
+      "matchup": "MEM vs POR",
+      "modelSide": "Home",
+      "pick": "MEM +-5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 43.8
+    },
+    {
+      "date": "2024-11-26",
+      "matchup": "DEN vs NYK",
+      "modelSide": "Home",
+      "pick": "DEN +-3.5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 69.5
+    },
+    {
+      "date": "2024-11-26",
+      "matchup": "SAC vs OKC",
+      "modelSide": "Home",
+      "pick": "SAC +-18.5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 93.5
+    },
+    {
+      "date": "2024-11-25",
+      "matchup": "SAC vs BKN",
+      "modelSide": "Home",
+      "pick": "SAC +-7.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 30
+    },
+    {
+      "date": "2024-11-24",
+      "matchup": "CHI vs MEM",
+      "modelSide": "Home",
+      "pick": "CHI +-5.5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 38.5
+    },
+    {
+      "date": "2024-11-24",
+      "matchup": "HOU vs POR",
+      "modelSide": "Home",
+      "pick": "HOU +-8",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 33.5
+    },
+    {
+      "date": "2024-11-24",
+      "matchup": "LAL vs DEN",
+      "modelSide": "Home",
+      "pick": "LAL +-7.5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 75
+    },
+    {
+      "date": "2024-11-24",
+      "matchup": "PHI vs LAC",
+      "modelSide": "Home",
+      "pick": "PHI +-5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 71
+    },
+    {
+      "date": "2024-11-23",
+      "matchup": "WAS vs BOS",
+      "modelSide": "Home",
+      "pick": "WAS +-8.5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 48.3
+    },
+    {
+      "date": "2024-11-23",
+      "matchup": "HOU vs POR",
+      "modelSide": "Home",
+      "pick": "HOU +-6.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 46.8
+    },
+    {
+      "date": "2024-11-23",
+      "matchup": "DEN vs DAL",
+      "modelSide": "Home",
+      "pick": "DEN +-5.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 20.5
+    },
+    {
+      "date": "2024-11-23",
+      "matchup": "UTA vs NYK",
+      "modelSide": "Home",
+      "pick": "UTA +-4.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 22.5
+    },
+    {
+      "date": "2024-11-21",
+      "matchup": "CLE vs NOP",
+      "modelSide": "Home",
+      "pick": "CLE 3.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 71.8
+    },
+    {
+      "date": "2024-11-21",
+      "matchup": "MIL vs CHI",
+      "modelSide": "Home",
+      "pick": "MIL +-5.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 22.3
+    },
+    {
+      "date": "2024-11-21",
+      "matchup": "HOU vs IND",
+      "modelSide": "Home",
+      "pick": "HOU +-4.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 27
+    },
+    {
+      "date": "2024-11-21",
+      "matchup": "PHX vs NYK",
+      "modelSide": "Home",
+      "pick": "PHX +-4.5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 47.3
+    },
+    {
+      "date": "2024-11-21",
+      "matchup": "GSW vs ATL",
+      "modelSide": "Home",
+      "pick": "GSW +-7",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 34.3
+    },
+    {
+      "date": "2024-11-20",
+      "matchup": "MEM vs DEN",
+      "modelSide": "Home",
+      "pick": "MEM +-12",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 57
+    },
+    {
+      "date": "2024-11-20",
+      "matchup": "DAL vs NOP",
+      "modelSide": "Home",
+      "pick": "DAL 1",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 94.8
+    },
+    {
+      "date": "2024-11-19",
+      "matchup": "DET vs CHI",
+      "modelSide": "Home",
+      "pick": "DET +-12",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 52.5
+    },
+    {
+      "date": "2024-11-19",
+      "matchup": "MIA vs PHI",
+      "modelSide": "Home",
+      "pick": "MIA +-6",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 23.3
+    },
+    {
+      "date": "2024-11-19",
+      "matchup": "NYK vs WAS",
+      "modelSide": "Home",
+      "pick": "NYK +-14.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 26.8
+    },
+    {
+      "date": "2024-11-19",
+      "matchup": "PHX vs ORL",
+      "modelSide": "Home",
+      "pick": "PHX +-3.5",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 31.3
+    },
+    {
+      "date": "2024-11-18",
+      "matchup": "CHI vs HOU",
+      "modelSide": "Home",
+      "pick": "CHI 0",
+      "result": "LOSS",
+      "pnl": -1,
+      "edge": 81
+    },
+    {
+      "date": "2024-11-18",
+      "matchup": "OKC vs DAL",
+      "modelSide": "Home",
+      "pick": "OKC +-12.5",
+      "result": "WIN",
+      "pnl": 0.91,
+      "edge": 35.8
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Pick {
+  id          String   @id @default(uuid())
+  bot         String   // "ZEUS", "LOKI", "SHIVA"
+  sport       String   @default("NBA")
+  
+  matchDate   DateTime
+  matchup     String   // e.g. "LAL vs BOS"
+  
+  pickType    String   // "SPREAD", "MONEYLINE", "TOTAL"
+  pickDetails String   // e.g. "LAL -4.5", "OVER 220.5"
+  
+  odds        Int      // American Odds e.g. -110, +150
+  edge        Float    // Model Edge %
+  
+  status      String   @default("PENDING") // PENDING, WIN, LOSS, PUSH
+  
+  // Settlement Info
+  resultScore String?  // "110-105"
+  profit      Float?   // Profit in units (e.g. +0.91 or -1.0)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Settings {
+    id String @id @default("global")
+    lastScan DateTime?
+}
