@@ -55,7 +55,10 @@ export default function ProfitChart({ data, color }: { data: ChartData[], color:
                             boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.5)'
                         }}
                         itemStyle={{ color: color, fontWeight: 'bold' }}
-                        formatter={(value: number) => [`${value > 0 ? '+' : ''}${value.toFixed(2)}u`, 'Net Profit']}
+                        formatter={(value: any) => {
+                            if (typeof value !== 'number') return [value, 'Net Profit'];
+                            return [`${value > 0 ? '+' : ''}${value.toFixed(2)}u`, 'Net Profit'];
+                        }}
                         labelStyle={{ color: '#94a3b8', marginBottom: '0.25rem' }}
                     />
                     <Line

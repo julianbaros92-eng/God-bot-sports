@@ -67,7 +67,7 @@ export async function fetchTeamStats(teamCode: string): Promise<TeamStats> {
     if (teamId) {
         try {
             // Fetch real data
-            const response = await statsClient.getTeamStats('2024'); // Using 2024-2025 season
+            const response: any = await statsClient.getTeamStats('2024'); // Using 2024-2025 season
 
             if (response && response.response && Array.isArray(response.response)) {
                 const teamData = response.response.find((t: any) => t.team.id === teamId);

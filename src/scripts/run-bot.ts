@@ -118,7 +118,7 @@ function checkSide(teamName: string, vegasOdds: number, kalshiClient: KalshiClie
 
     // 3. Print Result
     let color = "\x1b[37m"; // White
-    if (opp.action === 'BUY_UNDERDOG') color = "\x1b[32m"; // Green
+    if (opp.action === 'BUY_SIGNAL') color = "\x1b[32m"; // Green
 
     // Vegas Implied Probability
     const vegasProb = (opp.vegasPrice * 100).toFixed(1) + "%";
