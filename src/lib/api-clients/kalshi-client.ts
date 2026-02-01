@@ -20,7 +20,7 @@ export class KalshiClient {
     private baseUrl = 'https://demo-api.kalshi.co/trade-api/v2';
     private apiKey = process.env.KALSHI_API_KEY || ''; // From .env.local
     private privateKeyPath = process.env.KALSHI_PRIVATE_KEY_PATH || '';
-    private privateKey: string | null = null;
+    private privateKey: string | null = process.env.KALSHI_PRIVATE_KEY || null;
 
     // Cache
     private marketsCache: KalshiMarket[] = [];
@@ -31,6 +31,9 @@ export class KalshiClient {
     }
 
     private loadPrivateKey() {
+        // If already loaded from Env Var, skip file read
+        if (this.privateKey) return;
+
         if (this.privateKeyPath) {
             try {
                 // Handle relative path
