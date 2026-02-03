@@ -104,10 +104,23 @@ export class ApiSportsClient {
         return { response: [] };
     }
 
+    private getSeasonForDate(dateStr: string): number {
+        const [yearStr, monthStr] = dateStr.split('-');
+        const year = parseInt(yearStr);
+        const month = parseInt(monthStr);
+        // NBA Season Logic:
+        // Seasons start in Oct (10).
+        // If Month >= 10, Season = Year.
+        // If Month < 10, Season = Year - 1.
+        return month >= 10 ? year : year - 1;
+    }
+
     async getGamesByDate(date: string) {
         try {
-            // API-NBA v2: Season 2024 covers 2024-2025
-            const data = await this.fetch(`/games?season=2024&date=${date}`);
+            // API-NBA v2: Calculate season dynamically
+            const season = this.getSeasonForDate(date);
+            const url = `/games?season=${season}&date=${date}`;
+            const data = await this.fetch(url);
 
             if (data.errors && Object.keys(data.errors).length > 0) {
                 console.warn("API Sports Date Key Error:", JSON.stringify(data.errors));

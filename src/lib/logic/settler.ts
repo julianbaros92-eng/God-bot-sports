@@ -31,19 +31,34 @@ export async function settlePicks() {
     for (const [dateStr, picks] of Object.entries(picksByDate)) {
         console.log(`\n📅 Checking Date: ${dateStr}...`);
 
-        // Fetch Games from API
-        const response = await apiSports.getGamesByDate(dateStr);
-        if (!response || !response.response) {
+        // Fetch Games from API (Current Date + Next Date for robust matching)
+        // This handles cases where API date is slightly ahead/behind pick date
+        const d1 = await apiSports.getGamesByDate(dateStr);
+
+        const dateObj = new Date(dateStr);
+        dateObj.setDate(dateObj.getDate() + 1);
+        const nextDateStr = dateObj.toISOString().split('T')[0];
+        const d2 = await apiSports.getGamesByDate(nextDateStr);
+
+        const allGames = [
+            ...(d1?.response || []),
+            ...(d2?.response || [])
+        ];
+
+        if (allGames.length === 0) {
             console.log("   ❌ Failed to fetch games from API.");
             continue;
         }
 
-        const finishedGames = response.response.filter((g: any) =>
-            g.status.short === 'FT' || g.status.short === 'AOT'
+        const finishedGames = allGames.filter((g: any) =>
+            g.status.short === 'FT' ||
+            g.status.short === 'AOT' ||
+            g.status.long === 'Finished' ||
+            g.status.short === 3
         );
 
         if (finishedGames.length === 0) {
-            console.log("   ⚠️ No finished games found for this date yet.");
+            console.log("   ⚠️ No finished games found for this date (checked +1 day also).");
             continue;
         }
 

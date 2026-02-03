@@ -1,6 +1,7 @@
 import { Zap, Crown, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import styles from './page.module.css';
+import { getBotStats } from '@/app/actions/get-home-stats';
 
 const GODS = [
   {
@@ -41,7 +42,8 @@ const GODS = [
   }
 ];
 
-export default function Home() {
+export default async function Home() {
+  const botStats = await getBotStats();
   return (
     <div className={styles.container}>
       {/* Background Ambience */}
@@ -80,56 +82,63 @@ export default function Home() {
 
         {/* Gods Grid */}
         <div className={styles.godGrid}>
-          {GODS.map((god) => (
-            <div key={god.id} className={`${styles.godCard} ${!god.active ? styles.godCardDisabled : ''}`}>
+          {GODS.map((god) => {
+            const stats = botStats[god.name] || { profit: 0, winRate: '0%' };
+            const profitVal = stats.profit;
+            const profitStr = (profitVal > 0 ? '+' : '') + profitVal.toFixed(2) + 'u';
+            const profitColor = profitVal >= 0 ? '#4ade80' : '#f87171';
 
-              {/* Icon */}
-              <div className={styles.godImageContainer}>
-                {god.icon ? (
-                  <img src={god.icon} alt={god.name} className={styles.godImage} />
-                ) : (
-                  <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: god.gradient, opacity: 0.2 }}>
-                    <Crown color="white" size={32} />
+            return (
+              <div key={god.id} className={`${styles.godCard} ${!god.active ? styles.godCardDisabled : ''}`}>
+
+                {/* Icon */}
+                <div className={styles.godImageContainer}>
+                  {god.icon ? (
+                    <img src={god.icon} alt={god.name} className={styles.godImage} />
+                  ) : (
+                    <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: god.gradient, opacity: 0.2 }}>
+                      <Crown color="white" size={32} />
+                    </div>
+                  )}
+                </div>
+
+                <h2 className={styles.godName}>{god.name}</h2>
+                <p className={styles.godTitle} style={{ backgroundImage: god.gradient }}>
+                  {god.title}
+                </p>
+
+                <p className={styles.godDesc}>
+                  {god.description}
+                </p>
+
+                {/* Mini Stats */}
+                <div className={styles.miniStats}>
+                  <div className={styles.statBlock}>
+                    <span className={styles.miniStatLabel}>Strategy</span>
+                    <span className={styles.miniStatValue}>{god.stats.type}</span>
                   </div>
+                  <div className={`${styles.statBlock} ${styles.statBlockBorder}`}>
+                    <span className={styles.miniStatLabel}>Win Rate</span>
+                    <span className={styles.miniStatValue}>{stats.winRate}</span>
+                  </div>
+                  <div className={`${styles.statBlock} ${styles.statBlockBorder}`}>
+                    <span className={styles.miniStatLabel}>Profit (30d)</span>
+                    <span className={styles.miniStatValue} style={{ color: profitColor }}>{profitStr}</span>
+                  </div>
+                </div>
+
+                {god.active ? (
+                  <Link href={god.link} className={styles.enterBtn} style={{ background: god.btnGradient }}>
+                    Enter Domain <ArrowRight size={18} />
+                  </Link>
+                ) : (
+                  <button disabled className={styles.enterBtn} style={{ background: 'rgba(255,255,255,0.05)', color: '#64748b', cursor: 'not-allowed' }}>
+                    Summoning...
+                  </button>
                 )}
               </div>
-
-              <h2 className={styles.godName}>{god.name}</h2>
-              <p className={styles.godTitle} style={{ backgroundImage: god.gradient }}>
-                {god.title}
-              </p>
-
-              <p className={styles.godDesc}>
-                {god.description}
-              </p>
-
-              {/* Mini Stats */}
-              <div className={styles.miniStats}>
-                <div className={styles.statBlock}>
-                  <span className={styles.miniStatLabel}>Strategy</span>
-                  <span className={styles.miniStatValue}>{god.stats.type}</span>
-                </div>
-                <div className={`${styles.statBlock} ${styles.statBlockBorder}`}>
-                  <span className={styles.miniStatLabel}>Win Rate</span>
-                  <span className={styles.miniStatValue}>{god.stats.winRate}</span>
-                </div>
-                <div className={`${styles.statBlock} ${styles.statBlockBorder}`}>
-                  <span className={styles.miniStatLabel}>Profit</span>
-                  <span className={styles.miniStatValue} style={{ color: '#4ade80' }}>{god.stats.profit}</span>
-                </div>
-              </div>
-
-              {god.active ? (
-                <Link href={god.link} className={styles.enterBtn} style={{ background: god.btnGradient }}>
-                  Enter Domain <ArrowRight size={18} />
-                </Link>
-              ) : (
-                <button disabled className={styles.enterBtn} style={{ background: 'rgba(255,255,255,0.05)', color: '#64748b', cursor: 'not-allowed' }}>
-                  Summoning...
-                </button>
-              )}
-            </div>
-          ))}
+            )
+          })}
         </div>
 
       </div>
