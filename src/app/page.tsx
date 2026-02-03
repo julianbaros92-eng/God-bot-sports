@@ -2,6 +2,7 @@ import { Zap, Crown, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import styles from './page.module.css';
 import { getBotStats } from '@/app/actions/get-home-stats';
+import ProfitChart from '@/components/profit-chart';
 
 const GODS = [
   {
@@ -83,14 +84,13 @@ export default async function Home() {
         {/* Gods Grid */}
         <div className={styles.godGrid}>
           {GODS.map((god) => {
-            const stats = botStats[god.name] || { profit: 0, winRate: '0%' };
+            const stats = botStats[god.name] || { profit: 0, winRate: '0%', chartData: [] };
             const profitVal = stats.profit;
             const profitStr = (profitVal > 0 ? '+' : '') + profitVal.toFixed(2) + 'u';
             const profitColor = profitVal >= 0 ? '#4ade80' : '#f87171';
 
             return (
               <div key={god.id} className={`${styles.godCard} ${!god.active ? styles.godCardDisabled : ''}`}>
-
                 {/* Icon */}
                 <div className={styles.godImageContainer}>
                   {god.icon ? (
@@ -127,6 +127,11 @@ export default async function Home() {
                   </div>
                 </div>
 
+                {/* Profit Chart (New) */}
+                <div style={{ width: '100%', height: '180px', marginTop: '1rem', marginBottom: '1rem' }}>
+                  <ProfitChart data={stats.chartData} color={profitColor} />
+                </div>
+
                 {god.active ? (
                   <Link href={god.link} className={styles.enterBtn} style={{ background: god.btnGradient }}>
                     Enter Domain <ArrowRight size={18} />
@@ -139,9 +144,9 @@ export default async function Home() {
               </div>
             )
           })}
-        </div>
+        </div >
 
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
