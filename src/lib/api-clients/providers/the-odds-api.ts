@@ -13,7 +13,7 @@ export class TheOddsApiClient {
         }
 
         try {
-            const url = `${this.baseUrl}/${sport}/odds?regions=${region}&markets=h2h,spreads&oddsFormat=american&apiKey=${this.apiKey}`;
+            const url = `${this.baseUrl}/${sport}/odds?regions=${region}&markets=h2h,spreads,totals&oddsFormat=american&apiKey=${this.apiKey}`;
             // Cache for 5 minutes (300s) to catch short-lived Arb edges.
             // Warning: Uses ~12 calls/hour -> ~8,600/month.
             const res = await fetch(url, { next: { revalidate: 300 } });
