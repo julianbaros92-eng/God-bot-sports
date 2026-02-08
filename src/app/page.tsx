@@ -56,16 +56,6 @@ export default async function Home() {
     botStats = {}; // Fallback to empty
   }
 
-  // Debug DB Connection
-  let dbStatus = { ok: false, count: 0, error: '' };
-  try {
-    const count = await db.pick.count();
-    dbStatus = { ok: true, count, error: '' };
-  } catch (e: any) {
-    dbStatus = { ok: false, count: 0, error: e.message || 'Unknown DB Error' };
-    console.error("Home Page DB Error:", e);
-  }
-
   return (
     <div className={styles.container}>
       {/* Background Ambience */}
@@ -168,22 +158,6 @@ export default async function Home() {
         </div >
 
       </div >
-
-      {/* Debug Footer */}
-      <footer style={{
-        textAlign: 'center',
-        padding: '2rem',
-        color: '#64748b',
-        fontSize: '0.75rem',
-        fontFamily: 'monospace',
-        borderTop: '1px solid rgba(255,255,255,0.05)',
-        marginTop: 'auto'
-      }}>
-        <p>GodBotSports v1.2 • <span style={{ color: dbStatus.ok ? '#4ade80' : '#f87171' }}>
-          DB Status: {dbStatus.ok ? `Connected (${dbStatus.count} picks)` : `Error: ${dbStatus.error}`}
-        </span></p>
-        <p>Current Time: {new Date().toISOString()}</p>
-      </footer>
     </div >
   );
 }
