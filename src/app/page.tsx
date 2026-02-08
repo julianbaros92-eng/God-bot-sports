@@ -45,8 +45,16 @@ const GODS = [
 
 import { db } from '@/lib/db';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
-  const botStats = await getBotStats();
+  let botStats: any = {};
+  try {
+    botStats = await getBotStats();
+  } catch (e) {
+    console.error("Home Stats Fetch Failed:", e);
+    botStats = {}; // Fallback to empty
+  }
 
   // Debug DB Connection
   let dbStatus = { ok: false, count: 0, error: '' };
