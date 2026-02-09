@@ -47,6 +47,7 @@ export class StatsAggregator {
 
             finalStats.set(teamName, {
                 teamName: data.name,
+                gp: data.totalGames,
                 pointsPerGame: parseFloat(avgPoints.toFixed(1)),
                 pointsAllowed: parseFloat(avgAllowed.toFixed(1)),
                 pace: 100, // Placeholder, difficult to calc without play-by-play
@@ -54,7 +55,8 @@ export class StatsAggregator {
                 recentTrend: parseFloat(recentTrend.toFixed(1)),
                 injuryImpact: 0, // Placeholder
                 daysRest: daysRest,
-                avgMargin: parseFloat(avgMargin.toFixed(1))
+                avgMargin: parseFloat(avgMargin.toFixed(1)),
+                lastGameDate: data.lastGameDate
             });
         });
 

@@ -1,21 +1,26 @@
 
-import 'dotenv/config';
 import { db } from '../lib/db';
 
-async function main() {
-    console.log("🔍 Checking Database Picks...");
-    const picks = await db.pick.findMany({
-        orderBy: { createdAt: 'desc' }
-    });
-
-    if (picks.length === 0) {
-        console.log("❌ No picks found in database.");
-    } else {
-        console.log(`✅ Found ${picks.length} picks:`);
-        picks.forEach(p => {
-            console.log(`   [${p.status}] ${p.bot} ${p.pickDetails} (${p.matchup}) - ${p.matchDate.toISOString()}`);
+async function checkDb() {
+    try {
+        const totalPicks = await db.pick.count();
+        const pendingPicks = await db.pick.count({ where: { status: 'PENDING' } });
+        const recentPicks = await db.pick.findMany({
+            take: 5,
+            orderBy: { createdAt: 'desc' }
         });
+
+        console.log(`\n📊 DB Status:`);
+        console.log(`   Total Picks: ${totalPicks}`);
+        console.log(`   Pending Picks: ${pendingPicks}`);
+        console.log(`\n🆕 Most Recent 5 Picks:`);
+        recentPicks.forEach(p => {
+            console.log(`   - ${p.matchup} (${p.bot}) [${p.status}] Created: ${p.createdAt.toISOString()}`);
+        });
+
+    } catch (e) {
+        console.error("DB Check Failed:", e);
     }
 }
 
-main().catch(console.error);
+checkDb();

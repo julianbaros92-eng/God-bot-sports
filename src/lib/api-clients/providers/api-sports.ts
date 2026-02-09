@@ -48,7 +48,7 @@ export class ApiSportsClient {
      * Fetch recent games for a season.
      * Switch to v2.nba.api-sports.io (API-NBA)
      */
-    async getGames(season: string = '2024') {
+    async getGames(season: string = '2025') {
         try {
             // API-NBA v2: /games?season=YYYY
             const url = `/games?season=${season}`;

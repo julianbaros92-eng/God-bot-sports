@@ -38,3 +38,22 @@ model Settings {
     id String @id @default("global")
     lastScan DateTime?
 }
+
+model TeamStats {
+  id            String   @id @default(uuid())
+  teamName      String   @unique
+  season        String   @default("2025")
+  
+  gp            Int      @default(0)
+  pointsPerGame Float
+  pointsAllowed Float
+  pace          Float
+  efficiency    Float
+  recentTrend   Float // Last 5 games point diff
+  
+  avgMargin     Float @default(0.0)
+
+  lastGameDate  DateTime? // Critical for calculating Days Rest
+  
+  updatedAt     DateTime @updatedAt
+}

@@ -7,14 +7,16 @@ export interface BettingLine {
 
 export interface TeamStats {
     teamName: string;
+    gp: number;
     pointsPerGame: number;
     pointsAllowed: number;
     pace: number;         // Possessions per game
     efficiency: number;   // Net rating
     recentTrend: number;  // Last 5 games point differential
-    injuryImpact: number; // 0-1 scale, but let's treat it as "Points Lost Due to Injury" (e.g. 3.5 = Star Player Out)
-    daysRest: number;     // Days since last game (0 = back-to-back)
+    injuryImpact: number; // 0-1 scale
+    daysRest: number;     // Days since last game
     avgMargin: number;    // Average winning/losing margin
+    lastGameDate?: Date;
 }
 
 export interface MatchupAnalysis {

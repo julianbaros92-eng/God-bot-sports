@@ -7,6 +7,7 @@ import { StatsAggregator } from '../modeling/stats-aggregator';
 import { ZEUS_STRATEGY, LOKI_STRATEGY, SHIVA_STRATEGY } from '../modeling/strategies';
 import { BettingLine } from '../modeling/types';
 import { STAR_PLAYERS } from '../data/stars';
+import { updateTeamStats } from './stats-updater';
 
 export async function runScanner() {
     console.log("⚡ Starting Market Scan...");
@@ -16,15 +17,43 @@ export async function runScanner() {
         const oddsApi = new TheOddsApiClient();
         const calculator = new EdgeCalculator();
 
-        // 1. Build Stats
-        console.log("   Fetching season stats...");
-        const historyGames = await apiSports.getGames('2024');
-        if (!historyGames || historyGames.length === 0) {
-            console.error("❌ Failed to fetch stats history.");
+        // 1. Build Stats from DB Cache
+        console.log("   Fetching cached team stats...");
+        let cachedStats = await db.teamStats.findMany();
+
+        if (!cachedStats || cachedStats.length === 0) {
+            console.warn("⚠️ Cache empty. Running Initial Stats Update (This may take a moment)...");
+            await updateTeamStats();
+            cachedStats = await db.teamStats.findMany();
+        }
+
+        if (!cachedStats || cachedStats.length === 0) {
+            console.error("❌ Failed to load stats even after update.");
             return;
         }
-        const teamStats = StatsAggregator.aggregate(historyGames);
-        console.log(`   ✅ Stats built for ${teamStats.size} teams.`);
+
+        const teamStats = new Map<string, any>();
+        cachedStats.forEach(stat => {
+            // Recalculate Days Rest correctly based on NOW
+            const lastGame = stat.lastGameDate || new Date(0);
+            const diffTime = Math.abs(new Date().getTime() - lastGame.getTime());
+            const daysRest = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            teamStats.set(stat.teamName, {
+                teamName: stat.teamName,
+                gp: stat.gp,
+                pointsPerGame: stat.pointsPerGame,
+                pointsAllowed: stat.pointsAllowed,
+                pace: stat.pace,
+                efficiency: stat.efficiency,
+                recentTrend: stat.recentTrend,
+                avgMargin: stat.avgMargin,
+                daysRest: daysRest,
+                injuryImpact: 0, // Placeholder
+                lastGameDate: lastGame
+            });
+        });
+        console.log(`   ✅ Stats loaded for ${teamStats.size} teams.`);
 
         // 2. Fetch Odds
         console.log("   Fetching live odds...");
